@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DbService {
+public class TaskService {
+
     @Autowired
     private TaskRepository repository;
 
@@ -28,4 +29,5 @@ public class DbService {
     public Optional<Task> deleteTask(final Long id) {
         return repository.deleteById(id);
     }
+
 }

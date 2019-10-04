@@ -22,20 +22,17 @@ public class EmailScheduler {
 
     private static final String SUBJECT = "Tasks: One a day email";
 
-    //@Scheduled(cron = "0 0 10 * * *")
+    /* Testowanie funkcjonalności "jobów". Wysyłka email co 10 sekund.
+    @Scheduled(fixedDelay = 10000)
+    public void sendInformationEmail() {
+        final long size = taskRepository.count();
+        final String taskString = (size == 1) ? " task" : " tasks";
 
-//    @Scheduled( fixedDelay = 10000)
-//    public void sendInformationEmail() {
-//        long size = taskRepository.count();
-//        String taskString = "";
-//
-//        taskString = (size == 1) ? " task" : " tasks";
-//
-//        simpleEmailService.send(new Mail(
-//                adminConfig.getAdminMail(),
-//                SUBJECT,
-//                "Currently in database you got: " + size + taskString,
-//                "cc@wp.pl")
-//        );
-//    }
+        simpleEmailService.send(new Mail(
+                adminConfig.getAdminMail(),
+                SUBJECT,
+                "Currently in database you got: " + size + taskString,
+                "cc@wp.pl")
+        );
+    }*/
 }
