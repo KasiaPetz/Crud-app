@@ -15,14 +15,16 @@ import java.util.Optional;
 @Service
 public class TrelloService {
 
-    @Autowired
-    private AdminConfig adminConfig;
+    private final AdminConfig adminConfig;
+    private final TrelloClient trelloClient;
+    private final SimpleEmailService emailService;
 
     @Autowired
-    private TrelloClient trelloClient;
-
-    @Autowired
-    private SimpleEmailService emailService;
+    public TrelloService(AdminConfig adminConfig, TrelloClient trelloClient, SimpleEmailService emailService) {
+        this.adminConfig = adminConfig;
+        this.trelloClient = trelloClient;
+        this.emailService = emailService;
+    }
 
     private static final String SUBJECT = "Tasks: New Trello card";
 

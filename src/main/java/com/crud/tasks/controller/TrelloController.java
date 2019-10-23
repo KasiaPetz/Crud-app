@@ -14,8 +14,12 @@ import java.util.List;
 @RequestMapping("/v1/trello")
 public class TrelloController {
 
-    @Autowired
-    private TrelloService trelloService;
+    private final TrelloService trelloService;
+
+    @Autowired //opcjonalnie, wymagane gdy jest wiecej niz jeden konstruktor
+    public TrelloController(TrelloService trelloService) {
+        this.trelloService = trelloService;
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/getTrelloBoards")
     public List<TrelloBoardDto> getTrelloBoards() {
@@ -26,4 +30,5 @@ public class TrelloController {
     public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
         return trelloService.createdTrelloCard(trelloCardDto);
     }
+
 }

@@ -11,8 +11,12 @@ import java.util.Optional;
 @Service
 public class TaskService {
 
+    private final TaskRepository repository;
+
     @Autowired
-    private TaskRepository repository;
+    public TaskService(TaskRepository taskRepository) {
+        this.repository = taskRepository;
+    }
 
     public List<Task> getAllTasks() {
         return repository.findAll();
